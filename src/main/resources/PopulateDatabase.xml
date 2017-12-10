@@ -102,5 +102,4 @@
 	<property name="pregunta" ref="pregunta2"/>
 	</bean>
 	
-	
 </beans>
