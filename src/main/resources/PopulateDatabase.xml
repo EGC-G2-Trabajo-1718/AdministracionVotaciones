@@ -59,4 +59,47 @@
 	
 	<!-- Other domain beans come here -->	
 	
+	<bean id="votacion1" class="domain.Votacion">
+	<property name="id_censo" value="1"/>
+	<property name="id_grupo" value="1"/>
+	<property name="titulo" value="Titulo"/>
+	<property name="descripción" value="Descripción"/>
+	<property name="fecha_ini" value="10/10/2017 10:20"/>
+	<property name="fecha_fin" value="1/01/2018 10:20"/>
+	<property name="clave" value="clave"/>
+	</bean>
+	
+	<bean id="pregunta1" class="domain.Pregunta">
+	<property name="texto_pregunta" value="¿Te gustan los videojuegos?"/>
+	<property name="tipo_pregunta" value="Cerrada"/>
+	<property name="votacion" ref="votacion1"/>
+	</bean>
+	
+	<bean id="pregunta2" class="domain.Pregunta">
+	<property name="texto_pregunta" value="¿Cual es tu favorito?"/>
+	<property name="tipo_pregunta" value="Abierta"/>
+	<property name="votacion" ref="votacion1"/>
+	<property name="dependencia" ref="pregunta1"/>
+	</bean>
+	
+	<bean id="respuesta1" class="domain.Respuesta">
+	<property name="texto_respuesta" value="Si"/>
+	<property name="pregunta" ref="pregunta1"/>
+	</bean>
+	
+	<bean id="respuesta2" class="domain.Respuesta">
+	<property name="texto_respuesta" value="No"/>
+	<property name="pregunta" ref="pregunta1"/>
+	</bean>
+	
+	<bean id="respuesta3" class="domain.Respuesta">
+	<property name="texto_respuesta" value="El GTA"/>
+	<property name="pregunta" ref="pregunta2"/>
+	</bean>
+	
+	<bean id="respuesta4" class="domain.Respuesta">
+	<property name="texto_respuesta" value="El FIFA"/>
+	<property name="pregunta" ref="pregunta2"/>
+	</bean>
+	
 </beans>
