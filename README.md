@@ -1,4 +1,4 @@
-# AdministracionVotaciones v0.2
+# AdministracionVotaciones v0.1
 Repositorio para el módulo de administración de votaciones.
 
 Subsistema de la asignatura de EGC 17/18.
