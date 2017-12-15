@@ -1,3 +1,4 @@
+
 package services;
 
 import java.util.Collection;
@@ -45,4 +46,10 @@ public class PreguntaService {
 
 		return this.preguntaRepository.save(pregunta);
 	}
+
+	public void delete(final Pregunta pregunta) {
+
+		this.preguntaRepository.delete(pregunta);
+	}
+
 }

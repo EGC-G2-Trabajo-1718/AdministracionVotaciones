@@ -46,4 +46,10 @@ public class RespuestaService {
 
 		return this.respuestaRepository.save(respuesta);
 	}
+
+	public void delete(final Respuesta respuesta) {
+
+		this.respuestaRepository.delete(respuesta);
+	}
+
 }
