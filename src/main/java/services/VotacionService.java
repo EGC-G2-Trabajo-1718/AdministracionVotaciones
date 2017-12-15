@@ -46,4 +46,9 @@ public class VotacionService {
 
 		return this.votacionRepository.save(votacion);
 	}
+
+	public void delete(final Votacion votacion) {
+
+		this.votacionRepository.delete(votacion);
+	}
 }

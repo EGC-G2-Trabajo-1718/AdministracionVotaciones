@@ -22,7 +22,7 @@ public class Votacion extends DomainEntity {
 	private Integer	id_censo;
 	private Integer	id_grupo;
 	private String	titulo;
-	private String	descripción;
+	private String	descripcion;
 	private Date	fecha_ini;
 	private Date	fecha_fin;
 	private String	clave;
@@ -54,12 +54,12 @@ public class Votacion extends DomainEntity {
 	}
 
 	@NotBlank
-	public String getDescripción() {
-		return this.descripción;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
-	public void setDescripción(final String descripción) {
-		this.descripción = descripción;
+	public void setDescripcion(final String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	@NotNull
