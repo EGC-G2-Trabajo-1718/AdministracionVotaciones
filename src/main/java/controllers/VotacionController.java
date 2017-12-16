@@ -83,7 +83,7 @@ public class VotacionController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/post/votacionEdit", method = RequestMethod.POST)
-	public @ResponseBody VotacionApi editarVotación(@RequestBody(required = false) final Integer id, @RequestBody(required = false) final Integer id_censo, @RequestBody(required = true) final Integer id_grupo,
+	public @ResponseBody VotacionApi editarVotacion(@RequestBody(required = false) final Integer id, @RequestBody(required = false) final Integer id_censo, @RequestBody(required = true) final Integer id_grupo,
 		@RequestBody(required = false) final String titulo, @RequestBody(required = false) final String descripcion, @RequestBody(required = false) final String fecha_ini, @RequestBody(required = false) final String fecha_fin,
 		@RequestBody(required = false) final String clave) throws ParseException {
 		final VotacionApi vapi = new VotacionApi();
