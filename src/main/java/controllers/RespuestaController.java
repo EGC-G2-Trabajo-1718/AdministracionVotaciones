@@ -55,6 +55,7 @@ public class RespuestaController {
 			final RespuestaApi aux = new RespuestaApi();
 			aux.setPregunta(r.getPregunta().getId());
 			aux.setTexto_respuesta(r.getTexto_respuesta());
+			lista.add(aux);
 		}
 
 		return lista;
@@ -63,30 +64,39 @@ public class RespuestaController {
 	@RequestMapping(value = "/post/respuestaCreate", method = RequestMethod.POST)
 	public @ResponseBody RespuestaApi crearPregunta(@RequestParam(value = "texto_respuesta", required = true) final String texto_respuesta, @RequestParam(value = "pregunta", required = true) final int pregunta) throws ParseException {
 		final RespuestaApi vapi = new RespuestaApi();
-		final Respuesta respuesta = new Respuesta();
+		Respuesta respuesta = new Respuesta();
 		respuesta.setPregunta(this.preguntaService.findOne(pregunta));
 		vapi.setPregunta(pregunta);
-
+		vapi.setSeleccionada(false);
+		respuesta.setSeleccionada(false);
 		respuesta.setTexto_respuesta(texto_respuesta);
 		vapi.setTexto_respuesta(texto_respuesta);
-
+		respuesta = this.respuestaService.save(respuesta);
 		return vapi;
 	}
 
 	@RequestMapping(value = "/post/respuestaEdit", method = RequestMethod.POST)
 	public @ResponseBody RespuestaApi editarRespuesta(@RequestParam(value = "id", required = true) final int id, @RequestParam(value = "texto_respuesta", required = false) final String texto_respuesta,
-		@RequestParam(value = "pregunta", required = false) final Integer pregunta) throws ParseException {
+		@RequestParam(value = "pregunta", required = false) final Integer pregunta, @RequestParam(value = "seleccionada", required = false) final Boolean seleccionada) throws ParseException {
 		final RespuestaApi vapi = new RespuestaApi();
-		final Respuesta respuesta = this.respuestaService.findOne(id);
-
+		Respuesta respuesta = this.respuestaService.findOne(Integer.valueOf(id));
+		Pregunta p = this.preguntaService.findOne(Integer.valueOf(pregunta));
 		if (texto_respuesta != null) {
 			vapi.setTexto_respuesta(texto_respuesta);
 			respuesta.setTexto_respuesta(texto_respuesta);
 		}
 		if (pregunta != null) {
-			vapi.setPregunta(pregunta);
-			respuesta.setPregunta(this.preguntaService.findOne(id));
+			vapi.setPregunta(Integer.valueOf(pregunta));
+			respuesta.setPregunta(p);
+
 		}
+		if (seleccionada != null) {
+			vapi.setSeleccionada(seleccionada);
+			respuesta.setSeleccionada(seleccionada);
+		}
+		p.getRespuestas().add(respuesta);
+		p = this.preguntaService.save(p);
+		respuesta = this.respuestaService.save(respuesta);
 
 		return vapi;
 	}
