@@ -28,6 +28,16 @@
 	<property name="clave" value="clave"/>
 	</bean>
 	
+	<bean id="votacion2" class="domain.Votacion">
+	<property name="id_censo" value="2"/>
+	<property name="id_grupo" value="2"/>
+	<property name="titulo" value="Titulo2"/>
+	<property name="descripcion" value="Descripcion2"/>
+	<property name="fecha_ini" value="11/11/2017 10:20"/>
+	<property name="fecha_fin" value="11/11/2018 10:20"/>
+	<property name="clave" value="clave2"/>
+	</bean>
+	
 	<bean id="pregunta1" class="domain.Pregunta">
 	<property name="texto_pregunta" value="¿Te gustan los videojuegos?"/>
 	<property name="tipo_pregunta" value="Cerrada"/>
@@ -39,6 +49,19 @@
 	<property name="tipo_pregunta" value="Abierta"/>
 	<property name="votacion" ref="votacion1"/>
 	<property name="dependencia" ref="pregunta1"/>
+	</bean>
+	
+	<bean id="pregunta3" class="domain.Pregunta">
+	<property name="texto_pregunta" value="¿Te gustan los coches"/>
+	<property name="tipo_pregunta" value="Cerrada"/>
+	<property name="votacion" ref="votacion2"/>
+	</bean>
+	
+	<bean id="pregunta4" class="domain.Pregunta">
+	<property name="texto_pregunta" value="¿Cual te gusta mas?"/>
+	<property name="tipo_pregunta" value="Abierta"/>
+	<property name="votacion" ref="votacion2"/>
+	<property name="dependencia" ref="pregunta3"/>
 	</bean>
 	
 	<bean id="respuesta1" class="domain.Respuesta">
@@ -59,6 +82,26 @@
 	<bean id="respuesta4" class="domain.Respuesta">
 	<property name="texto_respuesta" value="El FIFA"/>
 	<property name="pregunta" ref="pregunta2"/>
+	</bean>
+	
+	<bean id="respuesta5" class="domain.Respuesta">
+	<property name="texto_respuesta" value="Si"/>
+	<property name="pregunta" ref="pregunta3"/>
+	</bean>
+	
+	<bean id="respuesta6" class="domain.Respuesta">
+	<property name="texto_respuesta" value="No"/>
+	<property name="pregunta" ref="pregunta3"/>
+	</bean>
+	
+	<bean id="respuesta7" class="domain.Respuesta">
+	<property name="texto_respuesta" value="El opel astra"/>
+	<property name="pregunta" ref="pregunta4"/>
+	</bean>
+	
+	<bean id="respuesta8" class="domain.Respuesta">
+	<property name="texto_respuesta" value="El audi A4"/>
+	<property name="pregunta" ref="pregunta4"/>
 	</bean>
 	
 </beans>
