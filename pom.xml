@@ -59,7 +59,7 @@
 				<version>1.1</version>
 				<executions>
 					<execution>
-						<phase>clean</phase>
+						<phase>install</phase>
 						<goals>
 							<goal>java</goal>
 						</goals>
