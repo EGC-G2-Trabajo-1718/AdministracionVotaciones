@@ -11,6 +11,7 @@ before_install:
   # INICIO DE DESPLIEGUE EN UN CONTENEDOR DE LA BASE DE DATOS DEL SISTEMA DE 
   #    VOTACIONES
   - pwd
+  - ls
   - mkdir mysql_build
   - cd mysql_build
   - curl -O https://raw.githubusercontent.com/EGC-G2-Trabajo-1718/integracion/master/docker/dockerfiles/mysql/init.sql
@@ -19,7 +20,7 @@ before_install:
   - docker network create --subnet=172.18.0.0/16 dev
   - docker run -d --network=dev --ip=172.18.2.2 -e MYSQL_ROOT_PASSWORD=nothing egc/mysql
   - cd ..
-  - mvn exec:java -Dexec.mainClass="PopulateDatabase"
+  - mvn exec:java -Dexec.mainClass="PopulateDatabase" -e
   # FIN DEL DESPLIEGUE, YA SE PUEDEN REALIZAR TESTS CON LA BD
 
 install: mvn clean install package -e
