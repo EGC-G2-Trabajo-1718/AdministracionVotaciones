@@ -18,7 +18,8 @@ before_install:
   - docker network create --subnet=172.18.0.0/16 dev
   - docker run -d --network=dev --ip=172.18.2.2 -e MYSQL_ROOT_PASSWORD=nothing egc/mysql
   - cd ..
-  - mvn clean compile
+  - mvn clean
+  - mvn compile
   - mvn exec:java -Dexec.mainClass="PopulateDatabase"
   # FIN DEL DESPLIEGUE, YA SE PUEDEN REALIZAR TESTS CON LA BD
 
