@@ -10,6 +10,7 @@ before_install:
 
   # INICIO DE DESPLIEGUE EN UN CONTENEDOR DE LA BASE DE DATOS DEL SISTEMA DE 
   #    VOTACIONES
+  - pwd
   - mkdir mysql_build
   - cd mysql_build
   - curl -O https://raw.githubusercontent.com/EGC-G2-Trabajo-1718/integracion/master/docker/dockerfiles/mysql/init.sql
