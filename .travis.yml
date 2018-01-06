@@ -23,7 +23,7 @@ before_install:
   - mvn exec:java -Dexec.mainClass="PopulateDatabase"
   # FIN DEL DESPLIEGUE, YA SE PUEDEN REALIZAR TESTS CON LA BD
 
-install: mvn clean install package
+install: mvn clean install package -DskipTests
 before_deploy:
   - chmod 600 deploy && mv deploy ~/.ssh/id_rsa
   - curl -O https://raw.githubusercontent.com/EGC-G2-Trabajo-1718/integracion/master/tools/deploy.sh
