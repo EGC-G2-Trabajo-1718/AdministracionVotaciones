@@ -1,4 +1,5 @@
 sudo: required
+language: java
 
 services:
   - docker
@@ -19,6 +20,7 @@ before_install:
   - cd ..
   # FIN DEL DESPLIEGUE, YA SE PUEDEN REALIZAR TESTS CON LA BD
 
+ install: mvn clean install package
 before_deploy:
   - chmod 600 deploy && mv deploy ~/.ssh/id_rsa
   - curl -O https://raw.githubusercontent.com/EGC-G2-Trabajo-1718/integracion/master/tools/deploy.sh
@@ -33,5 +35,4 @@ deploy:
   on:
     branch: master
 
-language: java
-install: mvn clean install
+
