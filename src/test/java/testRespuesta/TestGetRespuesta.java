@@ -43,7 +43,7 @@ public class TestGetRespuesta extends AbstractTest {
 			}, {
 				"51", NullPointerException.class
 			}, {
-				"6", null
+				"8", null
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)

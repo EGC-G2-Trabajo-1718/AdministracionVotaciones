@@ -39,11 +39,11 @@ public class TestCreatePregunta extends AbstractTest {
 	public void createPregunta() {
 		final Object[][] testingData = {
 			{
-				"Texto pregunta", "Tipo pregunta", "2", null
+				"Texto pregunta", "Tipo pregunta", "3", null
 			}, {
-				"Texto pregunta", "Tipo pregunta", "1", NullPointerException.class
+				"Texto pregunta", "Tipo pregunta", "1", IllegalArgumentException.class
 			}, {
-				"Texto pregunta", "Tipo pregunta", "2", null
+				"Texto pregunta", "Tipo pregunta", "3", null
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)

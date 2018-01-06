@@ -43,9 +43,9 @@ public class TestEditRespuesta extends AbstractTest {
 	public void editRespuesta() {
 		final Object[][] testingData = {
 			{
-				"4", "3", "Texto respuesta", true, null
+				"7", "3", "Texto respuesta", true, null
 			}, {
-				"5", "3", "Texto respuesta 2", false, null
+				"8", "3", "Texto respuesta 2", false, null
 			},
 		};
 		for (int i = 0; i < testingData.length; i++)

@@ -43,9 +43,9 @@ public class TestCreateRespuesta extends AbstractTest {
 	public void createRespuesta() {
 		final Object[][] testingData = {
 			{
-				"2", "Texto respuesta", null
+				"3", "Texto respuesta", null
 			}, {
-				"4", "Texto respuesta 2", IllegalArgumentException.class
+				"1", "Texto respuesta 2", IllegalArgumentException.class
 			}, {
 				"e", "Texto respuesta 3", NumberFormatException.class
 			}

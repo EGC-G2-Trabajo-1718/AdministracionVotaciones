@@ -48,9 +48,9 @@ public class TestEditPregunta extends AbstractTest {
 	public void editPregunta() {
 		final Object[][] testingData = {
 			{
-				"2", "Texto pregunta", "Tipo pregunta", "1", "3", "[4,5]", null
+				"3", "Texto pregunta", "Tipo pregunta", "1", "3", "[4,5]", IllegalArgumentException.class
 			}, {
-				"2", "Texto pregunta", "Tipo pregunta", "1", "3", "[6,7]", IllegalArgumentException.class
+				"5", "Texto pregunta", "Tipo pregunta", "1", "3", "[6,7]", IllegalArgumentException.class
 			},
 		};
 		for (int i = 0; i < testingData.length; i++)
@@ -83,7 +83,7 @@ public class TestEditPregunta extends AbstractTest {
 			final ArrayList<Respuesta> resp = new ArrayList<Respuesta>();
 			String resvapi = "[";
 			if (respuestas != null)
-				for (int i = 0; i == 1; i++) {
+				for (int i = 0; i == respuestas.length(); i++) {
 					if (respuestas.charAt(i) != '[' && respuestas.charAt(i) != ',' && respuestas.charAt(i) != ']') {
 						resp.add(this.respuestaService.findOne(i));
 						resvapi.concat(i + ",");

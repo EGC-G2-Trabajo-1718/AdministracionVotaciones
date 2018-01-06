@@ -42,11 +42,11 @@ public class TestGetPregunta extends AbstractTest {
 	public void getpregunta() {
 		final Object[][] testingData = {
 			{
-				"2", null
+				"3", null
 			}, {
 				"0", NullPointerException.class
 			}, {
-				"3", null
+				"4", null
 			}
 		};
 		for (int i = 0; i < testingData.length; i++)

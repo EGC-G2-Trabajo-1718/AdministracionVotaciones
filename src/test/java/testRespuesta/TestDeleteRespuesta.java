@@ -39,9 +39,9 @@ public class TestDeleteRespuesta extends AbstractTest {
 	public void createVotacion() {
 		final Object[][] testingData = {
 			{
-				"6", null
+				"7", null
 			}, {
-				"10", InvalidDataAccessApiUsageException.class
+				"6", InvalidDataAccessApiUsageException.class
 			},
 		};
 		for (int i = 0; i < testingData.length; i++)
