@@ -25,7 +25,6 @@ before_install:
 
 install: mvn clean install package -Dmaven.test.skip=true
 before_deploy:
-  - pwd
   - chmod 600 deploy && mv deploy ~/.ssh/id_rsa
   - curl -O https://raw.githubusercontent.com/EGC-G2-Trabajo-1718/integracion/master/tools/deploy.sh
   # ADMINISTRACIÓN DE VOTACIONES: DESCOMENTAR SIGUIENTE LÍNEA
