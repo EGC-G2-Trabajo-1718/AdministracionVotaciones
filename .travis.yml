@@ -5,9 +5,7 @@ services:
   - docker
 
 before_install:
-  # INSERTAR AQUÍ LÍNEA PARA DESENCRIPTAR CLAVE DE ACCESO AL SERVIDOR DE DESPLIEGUE,
-  #    PROPORCIONADA POR INTEGRACIÓN
-
+  - openssl aes-256-cbc -K $encrypted_bcc6b5569209_key -iv $encrypted_bcc6b5569209_iv -in deploy.enc -out deploy -d
   # INICIO DE DESPLIEGUE EN UN CONTENEDOR DE LA BASE DE DATOS DEL SISTEMA DE 
   #    VOTACIONES
   - mkdir mysql_build
