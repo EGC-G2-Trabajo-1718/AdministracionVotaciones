@@ -20,7 +20,7 @@ before_install:
   - cd ..
   - mvn clean
   - mvn compile
-  - mvn exec:java -Dexec.mainClass="PopulateDatabase"
+  - mvn exec:java -Dexec.mainClass="utilities.PopulateDatabase"
   # FIN DEL DESPLIEGUE, YA SE PUEDEN REALIZAR TESTS CON LA BD
 
 install: mvn clean install package -Dmaven.test.skip=true
