@@ -31,7 +31,7 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  script: ssh -o StrictHostKeyChecking=no deploy@egc.duckdns.org 'bash -s' < deploy.sh AdministracionVotaciones
+  script: ssh -o StrictHostKeyChecking=no deploy@egc.duckdns.org 'bash -s' < deploy.sh adm_votaciones
   # INSERTAR NOMBRE DEL SUBSISTEMA ESPECIFICADO EN LA WIKI SIN LOS CARACTERES "< >"
   on:
     branch: master
