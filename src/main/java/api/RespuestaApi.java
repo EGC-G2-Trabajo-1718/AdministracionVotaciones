@@ -5,6 +5,7 @@ public class RespuestaApi {
 
 	private String	texto_respuesta;
 	private int		pregunta;
+	private Boolean	seleccionada;
 
 
 	public String getTexto_respuesta() {
@@ -21,6 +22,14 @@ public class RespuestaApi {
 
 	public void setPregunta(final int pregunta) {
 		this.pregunta = pregunta;
+	}
+
+	public Boolean getSeleccionada() {
+		return this.seleccionada;
+	}
+
+	public void setSeleccionada(final Boolean seleccionada) {
+		this.seleccionada = seleccionada;
 	}
 
 }

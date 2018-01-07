@@ -12,7 +12,8 @@ import org.hibernate.validator.constraints.NotBlank;
 @Access(AccessType.PROPERTY)
 public class Respuesta extends DomainEntity {
 
-	private String texto_respuesta;
+	private String	texto_respuesta;
+	private Boolean	seleccionada;
 
 
 	@NotBlank
@@ -22,6 +23,14 @@ public class Respuesta extends DomainEntity {
 
 	public void setTexto_respuesta(final String texto_respuesta) {
 		this.texto_respuesta = texto_respuesta;
+	}
+
+	public Boolean getSeleccionada() {
+		return this.seleccionada;
+	}
+
+	public void setSeleccionada(final Boolean seleccionada) {
+		this.seleccionada = seleccionada;
 	}
 
 

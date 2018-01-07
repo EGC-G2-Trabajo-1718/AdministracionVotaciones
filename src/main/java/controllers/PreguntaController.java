@@ -102,8 +102,8 @@ public class PreguntaController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/post/preguntaEdit", method = RequestMethod.POST)
-	public @ResponseBody PreguntaApi editarPregunta(@RequestBody(required = true) final Integer id, @RequestBody(required = false) final String texto_pregunta, @RequestBody(required = true) final String tipo_pregunta,
-		@RequestBody(required = true) final Integer votacion, @RequestBody(required = true) final Integer dependencia, @RequestBody(required = true) final String respuestas) throws ParseException {
+	public @ResponseBody PreguntaApi editarPregunta(@RequestBody(required = true) final Integer id, @RequestBody(required = false) final String texto_pregunta, @RequestBody(required = false) final String tipo_pregunta,
+		@RequestBody(required = false) final Integer votacion, @RequestBody(required = false) final Integer dependencia, @RequestBody(required = false) final String respuestas) throws ParseException {
 
 		final Pregunta pregunta = this.preguntaService.findOne(id);
 		final PreguntaApi vapi = new PreguntaApi();
@@ -125,19 +125,25 @@ public class PreguntaController extends AbstractController {
 		}
 		final ArrayList<Respuesta> resp = new ArrayList<Respuesta>();
 		String resvapi = "[";
-		if (respuestas != null) {
-			for (int i = 0; i == 1; i++)
+		if (respuestas != null)
+			for (int i = 0; i == 1; i++) {
 				if (respuestas.charAt(i) != '[' && respuestas.charAt(i) != ',' && respuestas.charAt(i) != ']') {
 					resp.add(this.respuestaService.findOne(i));
 					resvapi.concat(i + ",");
 				}
-			pregunta.setRespuestas(resp);
-			resvapi = resvapi.substring(0, resvapi.length() - 2);
-			resvapi.concat("]");
-			vapi.setId_respuestas(resvapi);
-		}
 
-		return null;
+				pregunta.setRespuestas(resp);
+				resvapi = resvapi.substring(0, resvapi.length() - 2);
+				resvapi.concat("]");
+				vapi.setId_respuestas(resvapi);
+			}
+		for (final Respuesta r : resp) {
+			r.setPregunta(pregunta);
+			this.respuestaService.save(r);
+		}
+		this.preguntaService.save(pregunta);
+
+		return vapi;
 	}
 
 	@RequestMapping(value = "/post/preguntaDelete", method = RequestMethod.POST)
