@@ -4,6 +4,7 @@ package controllers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -165,6 +166,32 @@ public class VotacionController extends AbstractController {
 		}
 
 		return vapi;
+	}
+
+	@RequestMapping(value = "/get/votaciones", method = RequestMethod.GET)
+	public @ResponseBody ArrayList<VotacionApi> ObtenerVotaciones() {
+
+		final ArrayList<Votacion> lista = (ArrayList<Votacion>) this.votacionService.findAll();
+		final ArrayList<VotacionApi> res = new ArrayList<VotacionApi>();
+
+		for (final Votacion v : lista) {
+			final VotacionApi aux = new VotacionApi();
+			aux.setClave(v.getClave());
+			aux.setDescripcion(v.getDescripcion());
+			aux.setFecha_fin(v.getFecha_fin().toString().substring(0, 16));
+			aux.setFecha_ini(v.getFecha_ini().toString().substring(0, 16));
+			aux.setId(v.getId());
+			aux.setId_censo(v.getId_censo());
+			aux.setId_grupo(v.getId_grupo());
+			final List<String> preguntas = new ArrayList<String>();
+			for (final Pregunta p : v.getPreguntas())
+				preguntas.add(String.valueOf(p.getId()));
+			aux.setId_preguntas(preguntas.toString());
+			aux.setTitulo(v.getTitulo());
+			res.add(aux);
+		}
+
+		return res;
 	}
 
 }
